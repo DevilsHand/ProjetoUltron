@@ -1,4 +1,4 @@
-package main.java.engine.terminal;
+package engine.terminal;
 
 import java.lang.ProcessBuilder;
 
