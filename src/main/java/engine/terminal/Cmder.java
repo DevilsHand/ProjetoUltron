@@ -5,7 +5,7 @@ import java.lang.ProcessBuilder;
 public class Cmder {
 	private Process process;
 	private final String PATH;
-	private final String PROJECTPATH = "C:\\Projects";
+	private final String PROJECTPATH = "cd C:\\Projects";
 	public Cmder(String path) {
 		PATH = path;
 		try {
