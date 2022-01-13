@@ -1,0 +1,22 @@
+|CTAG_1638452555_695698921_21148_0
+javac - version
+javac
+|d %android_home%\emulator
+|mulator -list-avds
+emulator @Pixel_4_Treinamento
+$android_home%\emulator
+%android_home%/emulador
+%android_home%\emulator
+|d %android_home%\emulator
+emulator -list-avoids
+emulator-list-avoids
+|mulator -list-avds
+|mulator @Pixel_5_API_29
+|mulator @Pixel_5_API_29
+cd %android_home%\emulator
+emulator -list-avds
+|mulator @Pixel_5_API_29
+emulator @Pixel_5_API_29
+cd ..
+cd Projects
+git clone git@gitlab.inlabs.app:treinamento-automacao/treinamento-qa-automation-dezembro.git
