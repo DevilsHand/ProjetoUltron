@@ -1,1 +1,1 @@
-package main.java.engine.terminal;
+package engine.terminal;

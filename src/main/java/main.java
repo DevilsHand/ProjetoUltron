@@ -1,6 +1,6 @@
 package main.java;
 
-import main.java.engine.terminal.Cmder;
+import engine.terminal.Cmder;
 
 public class main {
 
