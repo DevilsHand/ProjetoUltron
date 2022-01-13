@@ -8,7 +8,7 @@ public class Cmder {
 	public Cmder(String path) {
 		PATH = path;
 		try {
-			process = new ProcessBuilder(PATH, "/start ", "C:\\Users\\gabriel.araujo\\Desktop").start();
+			process = new ProcessBuilder(PATH, "/start ", "C:\\Projects").start();
 			
 		} catch  (Exception e) {
 			System.out.println(e);
