@@ -6,7 +6,7 @@ public class Cmder {
 	private Process process;
 	private final String PATH;
 	private final String PROJECTPATH = "cd C:\\Projects";
-	private final String scripts = "./src/main/java/scripts/openCMD.sh";
+	private final String scripts = "./src/main/java/scripts/scipts.sh";
 	public Cmder(String path) {
 		PATH = path;
 		try {
