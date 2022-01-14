@@ -11,7 +11,7 @@ import static engine.terminal.Cmder.executarSh;
 
 public class ScriptObj {
 	private final String PROJECTPATH = "C:\\Projects";// Será removido daqui!!
-	private final String GPath = "C:\\Users\\gabriel.araujo\\eclipse-workspace\\ProjetoUltron";
+	private final String GPath = "C:\\Users\\gabriel.araujo\\eclipse-workspace\\ProjetoUltron";//TODO alterar
 	private final String path = "./src/main/java/scripts/runScript.sh";
 	private File arquivoSh;
 	private Cmder cmd;
@@ -19,14 +19,14 @@ public class ScriptObj {
 
 	public ScriptObj() {
 		arquivoSh = new File(path);
-		script.add(String.format("cd %s", GPath));
+		script.add(String.format("cd %s", GPath));//TODO alterar
 		script.add("ls");
 	}
 	
 	
 	public void executar() {
 		executarSh(path);
-		apagarSh();
+		//apagarSh();
 	}
 	private void escreverSh() {
 		script.add("read $NAME");// só pro bash não fechar, pode ser ignorado dps
@@ -52,16 +52,17 @@ public class ScriptObj {
 
 	}
 	
-	public void comandoCommit(String branch, String mergeMsg) {
+	public void comandoCommit(String mergeMsg) {
 		script.add("git add .");
 		script.add(String.format("git commit -m '%s'", mergeMsg));
 		escreverSh();
 	}
 
 	public void comandoPull(String branch, String mergeMsg) {
-		comandoCommit(branch, mergeMsg);
+		comandoCommit(mergeMsg);
 		script.add(String.format("git pull %s %s", "git@github.com:DevilsHand/ProjetoUltron.git", branch));
 		escreverSh();
 	}
+	
 
 }
