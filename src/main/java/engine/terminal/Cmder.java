@@ -3,17 +3,17 @@ package engine.terminal;
 import java.lang.ProcessBuilder;
 
 public class Cmder {
-	private Process process;
-	private final String PATH;
-	private final String PROJECTPATH = "cd C:\\Projects";
-	private final String scripts = "./src/main/java/scripts/scipts.sh";
-	public Cmder(String path) {
-		PATH = path;
+	private static Process process;
+	private final static String PATH = "./utils/cmder/vendor/git-for-windows/git-bash.exe";
+	
+	public static String executarSh(String script) {
 		try {
-			process = new ProcessBuilder(PATH, scripts).start();
+			process = new ProcessBuilder(PATH, script).start();
+			return "Executado";
 			
 		} catch  (Exception e) {
 			System.out.println(e);
+			return e.getMessage();
 		}
 	}
 }
