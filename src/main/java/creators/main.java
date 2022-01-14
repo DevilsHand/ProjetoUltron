@@ -1,18 +1,17 @@
 package creators;
 
-import engine.terminal.Cmder;
+import java.util.Scanner;
+
+import scriptmakers.ScriptObj;
 
 public class main {
 
 	public static void main(String[] args) {
-		String path = "C:\\Users\\gabriel.araujo\\Documents\\CMDer\\Cmder.exe"; 
-		String bash = "./utils/cmder/vendor/git-for-windows/git-bash.exe";
-		//ENFIA O CAMINHO DO SEU BASH NESSA VARIAVEL AKI ENCIMA
+		ScriptObj run = new ScriptObj();
+		System.out.println("Escreva seu nome: ");
+		String nome = new Scanner(System.in).nextLine();
 		
-		String pathCmd = "C:\\Windows\\system32\\cmd.exe";
-		
-		
-		new Cmder(bash);
+		run.exemploEscreverNome(nome);
 	}
 
 }
