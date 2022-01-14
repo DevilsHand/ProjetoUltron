@@ -1,7 +1,6 @@
 package scriptmakers;
 
 import java.io.File;
-import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.util.ArrayList;
@@ -27,18 +26,23 @@ public class ScriptObj {
 	
 	public void executar() {
 		executarSh(path);
+		apagarSh();
 	}
 	private void escreverSh() {
 		script.add("read $NAME");// só pro bash não fechar, pode ser ignorado dps
 		try {
 			Files.write(arquivoSh.toPath(), script, StandardCharsets.UTF_8);
 		} catch (Exception e) {
-			
+			//TODO retornar alguma informação pra tratarmos
 		}
 	}
 
 	private void apagarSh() {
-		// TODO implementar a função p apagr o script
+		try {
+			Files.delete(arquivoSh.toPath());			
+		} catch (Exception e) {
+			//TODO retornar algo para tratarmos
+		}
 	}
 
 	public void exemploEscreverNome(String nome) { // apagar esse método exemplo
