@@ -29,6 +29,7 @@ public class ScriptObj {
 		//apagarSh();
 	}
 	private void escreverSh() {
+		script.add("echo Esse Script ainda está em beta, pressione ENTER para finalizar");
 		script.add("read $NAME");// só pro bash não fechar, pode ser ignorado dps
 		try {
 			Files.write(arquivoSh.toPath(), script, StandardCharsets.UTF_8);

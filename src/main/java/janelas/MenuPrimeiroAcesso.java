@@ -26,10 +26,17 @@ public class MenuPrimeiroAcesso extends JPanel implements ActionListener {
 	public MenuPrimeiroAcesso(JanelaPrincipal janela) {
 			CONTROLADOR = janela;
 			setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
+			//torna os botões responsivos
 			btnCommit.addActionListener(this);
-			btnCommit.setActionCommand("Commit");
 			btnPull.addActionListener(this);
-			btnPull.setActionCommand("Pull");
+			btnPush.addActionListener(this);
+			btnMudarBranch.addActionListener(this);
+			//comandos para os botões
+			btnCommit.setActionCommand("Commit");
+			btnPull.setActionCommand("Não Add");
+			btnPush.setActionCommand("Não Add");//TODO implementar
+			btnMudarBranch.setActionCommand("Não Add");//TODO implementar
+			
 			boxTitulo.add(titulo);
 			boxBotoes.add(btnPull);
 			boxBotoes.add(btnPush);
@@ -47,6 +54,13 @@ public class MenuPrimeiroAcesso extends JPanel implements ActionListener {
 			ScriptObj script = new ScriptObj();
 			script.comandoCommit("Commit automatizado");
 			script.executar();
+			break;
+		case "Não Add":
+			JLabel msgErro = new JLabel("Função ainda não adicionada");
+			boxTitulo.add(msgErro);
+			updateUI();
+			break;		
+			
 		}
 		
 		
