@@ -3,6 +3,7 @@ package engine.janelas;
 import java.awt.Dimension;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import engine.config.Config;
@@ -31,6 +32,7 @@ public class JanelaPrincipal extends JFrame {
 		if (painelAtivo != null) {
 			remove(painelAtivo);			
 		}
+		
 		painelAtivo = new MenuPrincipal(this, CONFIGURATION);
 		getContentPane().add(painelAtivo);		
 		painelAtivo.updateUI();
@@ -50,5 +52,6 @@ public class JanelaPrincipal extends JFrame {
 		getContentPane().add(painelAtivo);
 		painelAtivo.updateUI();
 	}
+	//TODO create nested class jframe to comport branch name and call whenever nescessary
 
 }
