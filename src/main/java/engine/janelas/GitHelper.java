@@ -1,11 +1,11 @@
-package janelas;
+package engine.janelas;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import scriptmakers.ScriptObj;
+import engine.scriptmakers.ScriptObj;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -36,14 +36,14 @@ public class GitHelper extends JPanel implements ActionListener {
 			//comandos para os botões
 			btnVoltar.setActionCommand("Voltar");
 			btnCommit.setActionCommand("Commit");
-			btnPull.setActionCommand("Não Add");
-			btnPush.setActionCommand("Não Add");//TODO implementar
-			btnMudarBranch.setActionCommand("Não Add");//TODO implementar
+			btnPull.setActionCommand("Pull");
+			btnPush.setActionCommand("Push");//TODO implementar
+			btnMudarBranch.setActionCommand("MudarBranch");//TODO implementar
 			
 			boxTitulo.add(titulo);
 			boxBotoes.add(btnPull);
-			boxBotoes.add(btnPush);
-			boxBotoes.add(btnMudarBranch);
+			/*boxBotoes.add(btnPush);
+			boxBotoes.add(btnMudarBranch);*/
 			boxBotoes.add(btnCommit);
 			boxBotoes.add(btnVoltar);
 			add(boxTitulo);
@@ -53,21 +53,20 @@ public class GitHelper extends JPanel implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		ScriptObj script = new ScriptObj();
 		switch (e.getActionCommand()) {
+		
 		case "Commit":
-			ScriptObj script = new ScriptObj();
 			script.comandoCommit("Commit automatizado");
 			script.executar();
 			break;
-		default:
-			JLabel msgErro = new JLabel("Função ainda não adicionada");
-			boxTitulo.add(msgErro);
-			updateUI();
-			boxTitulo.remove(msgErro);
-			break;		
-		
+		case "Pull":
+			script.comandoPull("Pull Automatizado");
+			script.executar();
+			break;			
 		case "Voltar":
-			CONTROLADOR.menuPrimeiroAcesso();//TODO alterar para menu inicial
+			CONTROLADOR.inicio();//TODO alterar para menu inicial
+			break;
 			
 		}
 		

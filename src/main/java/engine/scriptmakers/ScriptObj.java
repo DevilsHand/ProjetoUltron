@@ -1,4 +1,4 @@
-package scriptmakers;
+package engine.scriptmakers;
 
 import java.io.File;
 import java.nio.charset.StandardCharsets;
@@ -6,21 +6,22 @@ import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
-import engine.terminal.Cmder;
 import static engine.terminal.Cmder.executarSh;
+import static engine.janelas.JanelaPrincipal.CONFIGURATION;
 
 public class ScriptObj {
-	private final String PROJECTPATH = "C:\\Projects";// Será removido daqui!!
-	private final String GPath = "C:\\Users\\gabriel.araujo\\eclipse-workspace\\ProjetoUltron";//TODO alterar
-	private final String path = "./src/main/java/scripts/runScript.sh";
+	private static final String PROJECTPATH = CONFIGURATION.getOption("path");// Será removido daqui!!
+	private static final String BRANCH = CONFIGURATION.getOption("branch");
+	private static final String path = "./src/main/java/scripts/runScript.sh";
 	private File arquivoSh;
-	private Cmder cmd;
 	private List<String> script = new ArrayList<String>();
-
+	
 	public ScriptObj() {
+		
 		arquivoSh = new File(path);
-		script.add(String.format("cd %s", GPath));//TODO alterar
+		script.add(String.format("cd %s", PROJECTPATH));//TODO alterar
 		script.add("ls");
+	
 	}
 	
 	
@@ -59,10 +60,14 @@ public class ScriptObj {
 		escreverSh();
 	}
 
-	public void comandoPull(String branch, String mergeMsg) {
+	public void comandoPull(String mergeMsg) {
 		comandoCommit(mergeMsg);
-		script.add(String.format("git pull %s %s", "git@github.com:DevilsHand/ProjetoUltron.git", branch));
+		script.add(String.format("git pull %s %s", "origin", BRANCH));
 		escreverSh();
+	}
+	
+	public void comandoClone () {
+		//TODO implementar o clone
 	}
 	
 
