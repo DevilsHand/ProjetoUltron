@@ -6,6 +6,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import engine.config.Config;
+import engine.janelas.JanelaPrincipal.NomeBranch;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,19 +17,19 @@ public class MenuPrincipal extends JPanel implements ActionListener {
 	private final JPanel boxTitulo = new JPanel();
 	private final JPanel boxBotoes = new JPanel();
 	private final JPanel boxRodape = new JPanel();
-	private final JLabel branchName;
+	private final JPanel nomeBranch;
 	private final JLabel titulo = new JLabel("Bem Vindo, escolha uma opção abaixo");
 	private final JButton btnGitHelper = new JButton(" Git Helper ");
 	private final JButton btnSnippetMaker = new JButton(" Snippet Maker ");
 	
-	public MenuPrincipal(JanelaPrincipal janela, Config cf) {
+	public MenuPrincipal(JanelaPrincipal janela, NomeBranch bn) {
 			CONTROLADOR = janela;
-			branchName = new JLabel("Branch atual: " + cf.getOption("branch"));
+			nomeBranch = bn.getNomeBranch();
 			setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
-			menuPrincipal();
+			startUp();
 	}
 	
-	private void menuPrincipal() {
+	private void startUp() {
 		//torna os botões responsivos
 		btnGitHelper.addActionListener(this);
 		btnSnippetMaker.addActionListener(this);
@@ -39,11 +40,11 @@ public class MenuPrincipal extends JPanel implements ActionListener {
 		boxBotoes.add(btnGitHelper);
 		boxBotoes.add(btnSnippetMaker);
 		boxTitulo.add(titulo);
-		boxRodape.add(branchName);
+		boxRodape.add(nomeBranch);
 		
 		add(boxTitulo);
 		add(boxBotoes);
-		add(boxRodape);
+		add(nomeBranch);
 		updateUI();
 
 	}

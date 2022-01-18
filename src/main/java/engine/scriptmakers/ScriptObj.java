@@ -70,5 +70,10 @@ public class ScriptObj {
 		//TODO implementar o clone
 	}
 	
+	public void comandoCheckout(String branch) {
+		script.add(String.format("git checkout -b %s", branch));
+
+	}
+	
 
 }

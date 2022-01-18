@@ -10,13 +10,16 @@ import engine.config.Config;
 
 public class JanelaPrincipal extends JFrame {
 	public static final Config CONFIGURATION = new Config();
+	private static NomeBranch nomeBranch; 
 	
 	private JPanel painelAtivo;
 	public JanelaPrincipal() {
 		super("Automation Helper 0.0.2" );
+		nomeBranch = this.new NomeBranch();
 		setSize(new Dimension(400, 250));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
+		
 		
 	}
 	
@@ -33,7 +36,7 @@ public class JanelaPrincipal extends JFrame {
 			remove(painelAtivo);			
 		}
 		
-		painelAtivo = new MenuPrincipal(this, CONFIGURATION);
+		painelAtivo = new MenuPrincipal(this, nomeBranch);
 		getContentPane().add(painelAtivo);		
 		painelAtivo.updateUI();
 		
@@ -48,10 +51,21 @@ public class JanelaPrincipal extends JFrame {
 	
 	public void gitHelper() {
 		remove(painelAtivo);
-		painelAtivo = new GitHelper(this);
+		painelAtivo = new GitHelper(this, nomeBranch);
 		getContentPane().add(painelAtivo);
 		painelAtivo.updateUI();
 	}
-	//TODO create nested class jframe to comport branch name and call whenever nescessary
+	public class NomeBranch extends JPanel {
+		private final JLabel nomeBranch;
+		
+		public NomeBranch() {
+			nomeBranch = new JLabel("Branch Atual: " + CONFIGURATION.getOption("branch"));
+			add(nomeBranch);
+		}
+		public JPanel getNomeBranch() {
+			return this;
+		}
+		
+	}
 
 }
