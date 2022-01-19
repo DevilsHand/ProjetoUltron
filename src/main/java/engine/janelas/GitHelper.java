@@ -14,7 +14,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class GitHelper extends JPanel implements ActionListener {
-	private final JanelaPrincipal CONTROLADOR;
+	private final JanelaPrincipal MENU;
 	private final JPanel boxTitulo = new JPanel();
 	private final JPanel boxBotoes = new JPanel();
 	private final JPanel nomeBranch;
@@ -27,10 +27,9 @@ public class GitHelper extends JPanel implements ActionListener {
 	private final JButton btnVoltar = new JButton(" Voltar ");
 	
 	public GitHelper(JanelaPrincipal janela, NomeBranch nb) {
-			CONTROLADOR = janela;
+			MENU = janela;
 			nomeBranch = nb.getNomeBranch();
 			setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
-			//torna os botões responsivos
 			startUp();
 	}
 	private void startUp() {
@@ -84,7 +83,7 @@ public class GitHelper extends JPanel implements ActionListener {
 			script.executar();
 			break;
 		case "Voltar":
-			CONTROLADOR.inicio();//TODO alterar para menu inicial
+			MENU.inicio();//TODO alterar para menu inicial
 			break;
 			
 		}
