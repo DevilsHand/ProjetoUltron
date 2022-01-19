@@ -9,13 +9,13 @@ import javax.swing.JPanel;
 import engine.config.Config;
 
 public class JanelaPrincipal extends JFrame {
-	public static final Config CONFIGURATION = new Config();
-	private static NomeBranch nomeBranch; 
+	public static final Config CONFIG = new Config();
+	private  NomeBranch nomeBranch; 
 	
 	private JPanel painelAtivo;
 	public JanelaPrincipal() {
-		super("Automation Helper (beta 0.1)" );
-		nomeBranch = this.new NomeBranch();
+		super("Automation Helper (beta 0.2)" );
+		
 		setSize(new Dimension(400, 250));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
@@ -24,7 +24,8 @@ public class JanelaPrincipal extends JFrame {
 	}
 	
 	public void inicio() {
-		if (CONFIGURATION.isLive) {
+		if (CONFIG.isLive) {
+			nomeBranch = this.new NomeBranch();
 			menuPrincipal();
 		} else {
 			menuConfiguration();
@@ -59,12 +60,19 @@ public class JanelaPrincipal extends JFrame {
 		private final JLabel nomeBranch;
 		
 		public NomeBranch() {
-			nomeBranch = new JLabel("Branch Atual: " + CONFIGURATION.getOption("branch"));
+			nomeBranch = new JLabel("Branch Atual: " + CONFIG.getOption("branch"));
 			add(nomeBranch);
 		}
 		public JPanel getNomeBranch() {
 			return this;
 		}
+		
+	}
+	public void ajuda() {
+		remove(painelAtivo);
+		painelAtivo = new Ajuda(this);
+		getContentPane().add(painelAtivo);
+		painelAtivo.updateUI();
 		
 	}
 

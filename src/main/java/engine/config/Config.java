@@ -9,6 +9,7 @@ import java.util.Dictionary;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Scanner;
+import java.util.regex.Matcher;
 
 public class Config {
 	
@@ -30,7 +31,7 @@ public class Config {
 	public void criarConfig(String branch, String path) {
 		List<String> option = new ArrayList<String>();
 		option.add(branch);
-		option.add(path);
+		option.add(path.replaceAll("\\\\", Matcher.quoteReplacement("\\\\")));
 		config.delete();
 		try {
 			config.createNewFile();

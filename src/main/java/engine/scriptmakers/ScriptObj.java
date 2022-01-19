@@ -5,14 +5,13 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 import static engine.terminal.Cmder.executarSh;
-import static engine.janelas.JanelaPrincipal.CONFIGURATION;
+import static engine.janelas.JanelaPrincipal.CONFIG;
 
 public class ScriptObj {
-	private static final String PROJECTPATH = CONFIGURATION.getOption("path");// Será removido daqui!!
-	private static final String BRANCH = CONFIGURATION.getOption("branch");
+	private static final String PROJECTPATH = CONFIG.getOption("path");// Será removido daqui!!
+	private static final String BRANCH = CONFIG.getOption("branch");
 	private static final String path = "./src/main/java/scripts/runScript.sh";
 	private File arquivoSh;
 	private List<String> script = new ArrayList<String>();
@@ -21,8 +20,6 @@ public class ScriptObj {
 		
 		arquivoSh = new File(path);
 		script.add(String.format("cd %s", PROJECTPATH));//TODO alterar
-		script.add("ls");
-	
 	}
 	
 	public void executar() {
@@ -60,6 +57,9 @@ public class ScriptObj {
 	}
 	
 	public void comandoPush(String mergeMsg) {
+		script.add("echo -+--+--+--+--+--+--+--+--+--+--+--+--+--+-");
+		script.add("echo '|Insira sua senha do git no prompt abaixo|'");
+		script.add("echo -+--+--+--+--+--+--+--+--+--+--+--+--+--+-");
 		comandoCommit(mergeMsg);
 		script.add(String.format("git push %s %s", "origin", BRANCH));
 	}
@@ -73,6 +73,8 @@ public class ScriptObj {
 	}
 	public void commandoStatus() {
 		script.add("git status");
+		script.add("echo pressione ENTER para continuar");
+		script.add("read $N");
 		
 		
 	}

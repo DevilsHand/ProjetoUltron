@@ -4,7 +4,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import static engine.janelas.JanelaPrincipal.CONFIGURATION;
+import static engine.janelas.JanelaPrincipal.CONFIG;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -54,7 +54,7 @@ public class PrimeiroAcesso  extends JPanel implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		switch (e.getActionCommand()) {
 		case "Config":
-			CONFIGURATION.criarConfig(inBranch.getText(), inPath.getText());
+			CONFIG.criarConfig(inBranch.getText(), inPath.getText());
 			remove(boxTitulo);
 			remove(boxBotoes);
 			remove(boxBotoesII);
