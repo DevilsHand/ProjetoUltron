@@ -78,6 +78,8 @@ public class ScriptObj {
 	}
 	public void commandoStatus() {
 		script.add("git status");
+		
+		
 	}
 	
 
