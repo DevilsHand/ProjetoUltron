@@ -43,7 +43,7 @@ public class GitHelper extends JPanel implements ActionListener {
 		btnVoltar.setActionCommand("Voltar");
 		btnCommit.setActionCommand("Commit");
 		btnPull.setActionCommand("Pull");
-		btnPush.setActionCommand("Push");//TODO implementar
+		btnPush.setActionCommand("Push");
 		btnMudarBranch.setActionCommand("MudarBranch");//TODO implementar
 		btnStatus.setActionCommand("Status");
 		
@@ -83,7 +83,7 @@ public class GitHelper extends JPanel implements ActionListener {
 			script.executar();
 			break;
 		case "Voltar":
-			MENU.inicio();//TODO alterar para menu inicial
+			MENU.inicio();
 			break;
 			
 		}

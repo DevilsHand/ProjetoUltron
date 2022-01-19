@@ -56,6 +56,25 @@ public class JanelaPrincipal extends JFrame {
 		getContentPane().add(painelAtivo);
 		painelAtivo.updateUI();
 	}
+	
+	
+	public void ajuda() {
+		remove(painelAtivo);
+		painelAtivo = new Ajuda(this);
+		getContentPane().add(painelAtivo);
+		painelAtivo.updateUI();
+		
+	}
+
+	public void snippetMaker() {
+		remove(painelAtivo);
+		painelAtivo = new SnippetMaker(this);
+		getContentPane().add(painelAtivo);
+		painelAtivo.updateUI();
+		
+	}
+	
+
 	public class NomeBranch extends JPanel {
 		private final JLabel nomeBranch;
 		
@@ -68,12 +87,4 @@ public class JanelaPrincipal extends JFrame {
 		}
 		
 	}
-	public void ajuda() {
-		remove(painelAtivo);
-		painelAtivo = new Ajuda(this);
-		getContentPane().add(painelAtivo);
-		painelAtivo.updateUI();
-		
-	}
-
 }

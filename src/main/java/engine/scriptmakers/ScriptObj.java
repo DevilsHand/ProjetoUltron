@@ -76,7 +76,6 @@ public class ScriptObj {
 		script.add("echo pressione ENTER para continuar");
 		script.add("read $N");
 		
-		
 	}
 	
 
