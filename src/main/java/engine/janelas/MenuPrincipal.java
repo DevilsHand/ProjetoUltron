@@ -63,7 +63,7 @@ public class MenuPrincipal extends JPanel implements ActionListener {
 			break;
 			
 		case "Snippets":
-			
+			MENU.snippetMaker();			
 			break;
 			
 		default :
