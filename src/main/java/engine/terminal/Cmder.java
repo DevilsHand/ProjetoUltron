@@ -1,9 +1,10 @@
 package engine.terminal;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.lang.ProcessBuilder;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Cmder {
 	private static Process process;
@@ -12,12 +13,12 @@ public class Cmder {
 	public static List<String> executarSh(String script) {
 		try {
 			process = new ProcessBuilder(PATH, script).start();
-			Scanner sc = new Scanner(process.getInputStream());
+			BufferedReader br = new BufferedReader(new InputStreamReader(process.getInputStream()));
+			
 			List<String> leitor = new ArrayList<String>();
-			while (sc.hasNextLine()) {
-				leitor.add(sc.nextLine());
+			while (br.readLine() != null) {
+				leitor.add(br.readLine());
 			}
-			sc.close();
 			return leitor;
 			
 		} catch  (Exception e) {
