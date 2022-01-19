@@ -1,5 +1,5 @@
-!/bin/bash
-cd C:\Projects
+cd C:\Users\gabriel.araujo\eclipse-workspace\ProjetoUltron
 ls
-echo  aMANDA
-read $NAME
+git add .
+git commit -m 'Push Automatizado'
+git push origin Gabriel

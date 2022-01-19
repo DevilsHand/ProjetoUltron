@@ -1,17 +1,22 @@
 package creators;
 
+import java.io.PrintStream;
 import java.util.Scanner;
 
-import scriptmakers.ScriptObj;
+import engine.janelas.JanelaPrincipal;
 
 public class main {
-
+	private static Scanner seletor = new Scanner(System.in);
+	private static PrintStream stream = System.out;
+	private static JanelaPrincipal janela;
+	
 	public static void main(String[] args) {
-		ScriptObj run = new ScriptObj();
-		System.out.println("Escreva seu nome: ");
-		String nome = new Scanner(System.in).nextLine();
 		
-		run.exemploEscreverNome(nome);
+		janela = new JanelaPrincipal();
+		janela.inicio();
+		
+		
 	}
+	
 
 }
