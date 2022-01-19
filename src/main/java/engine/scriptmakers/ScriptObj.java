@@ -15,7 +15,6 @@ public class ScriptObj {
 	private static final String BRANCH = CONFIGURATION.getOption("branch");
 	private static final String path = "./src/main/java/scripts/runScript.sh";
 	private File arquivoSh;
-	private List<String> leitor = new ArrayList<String>();
 	private List<String> script = new ArrayList<String>();
 	
 	public ScriptObj() {
@@ -27,14 +26,14 @@ public class ScriptObj {
 	}
 	
 	public void executar() {
-		leitor = executarSh(path);
-		System.out.println(leitor);
+		escreverSh();
+		executarSh(path);
 		
-		//apagarSh();
+		apagarSh();
 	}
 	private void escreverSh() {
-		script.add("echo Esse Script ainda está em beta, pressione ENTER para finalizar");
-		script.add("read $NAME");// só pro bash não fechar, pode ser ignorado dps
+		//script.add("echo Esse Script ainda está em beta, pressione ENTER para finalizar");
+		//script.add("read $NAME");// só pro bash não fechar, pode ser ignorado dps
 		try {
 			Files.write(arquivoSh.toPath(), script, StandardCharsets.UTF_8);
 		} catch (Exception e) {
@@ -53,19 +52,16 @@ public class ScriptObj {
 	public void comandoCommit(String mergeMsg) {
 		script.add("git add .");
 		script.add(String.format("git commit -m '%s'", mergeMsg));
-		escreverSh();
 	}
 
 	public void comandoPull(String mergeMsg) {
 		comandoCommit(mergeMsg);
-		script.add(String.format("git pull %s %s", "origin", BRANCH));
-		escreverSh();
+		script.add(String.format("git pull %s %s", "origin", "main"));
 	}
 	
 	public void comandoPush(String mergeMsg) {
 		comandoCommit(mergeMsg);
 		script.add(String.format("git push %s %s", "origin", BRANCH));
-		escreverSh();
 	}
 	
 	public void comandoClone () {

@@ -12,9 +12,6 @@ import engine.janelas.JanelaPrincipal.NomeBranch;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
 
 public class GitHelper extends JPanel implements ActionListener {
 	private final JanelaPrincipal CONTROLADOR;
