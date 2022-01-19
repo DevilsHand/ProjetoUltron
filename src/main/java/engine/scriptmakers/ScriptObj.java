@@ -20,8 +20,6 @@ public class ScriptObj {
 		
 		arquivoSh = new File(path);
 		script.add(String.format("cd %s", PROJECTPATH));//TODO alterar
-		script.add("ls");
-	
 	}
 	
 	public void executar() {
@@ -59,6 +57,9 @@ public class ScriptObj {
 	}
 	
 	public void comandoPush(String mergeMsg) {
+		script.add("echo ______________________________________");
+		script.add("Insira sua senha do git no prompt abaixo");
+		script.add("echo ______________________________________");
 		comandoCommit(mergeMsg);
 		script.add(String.format("git push %s %s", "origin", BRANCH));
 	}
