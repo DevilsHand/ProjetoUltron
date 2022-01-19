@@ -49,13 +49,6 @@ public class ScriptObj {
 			//TODO retornar algo para tratarmos
 		}
 	}
-
-	public void exemploEscreverNome(String nome) { // apagar esse método exemplo
-		script.add(String.format("echo  %s", nome));
-		System.out.println(script);// printar a ArrayList pode ser ignorado e removido
-		escreverSh();
-
-	}
 	
 	public void comandoCommit(String mergeMsg) {
 		script.add("git add .");
@@ -66,6 +59,12 @@ public class ScriptObj {
 	public void comandoPull(String mergeMsg) {
 		comandoCommit(mergeMsg);
 		script.add(String.format("git pull %s %s", "origin", BRANCH));
+		escreverSh();
+	}
+	
+	public void comandoPush(String mergeMsg) {
+		comandoCommit(mergeMsg);
+		script.add(String.format("git push %s %s", "origin", BRANCH));
 		escreverSh();
 	}
 	

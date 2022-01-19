@@ -52,10 +52,10 @@ public class GitHelper extends JPanel implements ActionListener {
 		btnStatus.setActionCommand("Status");
 		
 		boxTitulo.add(titulo);
-		boxBotoes.add(btnPull);
 		boxBotoes.add(btnStatus);
-		/*boxBotoes.add(btnPush);
-		boxBotoes.add(btnMudarBranch);*/
+		boxBotoes.add(btnPull);
+		boxBotoes.add(btnPush);
+		/*boxBotoes.add(btnMudarBranch);*/
 		boxBotoes.add(btnCommit);
 		boxBotoes.add(btnVoltar);
 		add(boxTitulo);
@@ -76,6 +76,10 @@ public class GitHelper extends JPanel implements ActionListener {
 			break;
 		case "Pull":
 			script.comandoPull("Pull Automatizado");
+			script.executar();
+			break;
+		case "Push":
+			script.comandoPush("Push Automatizado");
 			script.executar();
 			break;
 		case "Status":
