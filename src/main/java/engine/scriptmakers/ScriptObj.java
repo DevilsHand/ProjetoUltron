@@ -58,7 +58,7 @@ public class ScriptObj {
 	
 	public void comandoPush(String mergeMsg) {
 		script.add("echo -+--+--+--+--+--+--+--+--+--+--+--+--+--+-");
-		script.add("echo |Insira sua senha do git no prompt abaixo|");
+		script.add("echo '|Insira sua senha do git no prompt abaixo|'");
 		script.add("echo -+--+--+--+--+--+--+--+--+--+--+--+--+--+-");
 		comandoCommit(mergeMsg);
 		script.add(String.format("git push %s %s", "origin", BRANCH));
