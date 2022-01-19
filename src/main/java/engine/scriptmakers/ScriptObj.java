@@ -5,6 +5,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 import static engine.terminal.Cmder.executarSh;
 import static engine.janelas.JanelaPrincipal.CONFIGURATION;
@@ -14,6 +15,7 @@ public class ScriptObj {
 	private static final String BRANCH = CONFIGURATION.getOption("branch");
 	private static final String path = "./src/main/java/scripts/runScript.sh";
 	private File arquivoSh;
+	private List<String> leitor = new ArrayList<String>();
 	private List<String> script = new ArrayList<String>();
 	
 	public ScriptObj() {
@@ -24,9 +26,10 @@ public class ScriptObj {
 	
 	}
 	
-	
 	public void executar() {
-		executarSh(path);
+		leitor = executarSh(path);
+		System.out.println(leitor);
+		
 		//apagarSh();
 	}
 	private void escreverSh() {
@@ -72,7 +75,9 @@ public class ScriptObj {
 	
 	public void comandoCheckout(String branch) {
 		script.add(String.format("git checkout -b %s", branch));
-
+	}
+	public void commandoStatus() {
+		script.add("git status");
 	}
 	
 

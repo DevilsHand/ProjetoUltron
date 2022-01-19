@@ -26,6 +26,7 @@ public class GitHelper extends JPanel implements ActionListener {
 	private final JButton btnPush = new JButton(" Push ");
 	private final JButton btnCommit = new JButton(" Commit ");
 	private final JButton btnMudarBranch = new JButton(" Mudar Branch ");
+	private final JButton btnStatus = new JButton(" Status ");
 	private final JButton btnVoltar = new JButton(" Voltar ");
 	
 	public GitHelper(JanelaPrincipal janela, NomeBranch nb) {
@@ -41,15 +42,18 @@ public class GitHelper extends JPanel implements ActionListener {
 		btnPull.addActionListener(this);
 		btnPush.addActionListener(this);
 		btnMudarBranch.addActionListener(this);
+		btnStatus.addActionListener(this);
 		//comandos para os botões
 		btnVoltar.setActionCommand("Voltar");
 		btnCommit.setActionCommand("Commit");
 		btnPull.setActionCommand("Pull");
 		btnPush.setActionCommand("Push");//TODO implementar
 		btnMudarBranch.setActionCommand("MudarBranch");//TODO implementar
+		btnStatus.setActionCommand("Status");
 		
 		boxTitulo.add(titulo);
 		boxBotoes.add(btnPull);
+		boxBotoes.add(btnStatus);
 		/*boxBotoes.add(btnPush);
 		boxBotoes.add(btnMudarBranch);*/
 		boxBotoes.add(btnCommit);
@@ -73,7 +77,11 @@ public class GitHelper extends JPanel implements ActionListener {
 		case "Pull":
 			script.comandoPull("Pull Automatizado");
 			script.executar();
-			break;			
+			break;
+		case "Status":
+			script.commandoStatus();
+			script.executar();
+			break;
 		case "Voltar":
 			CONTROLADOR.inicio();//TODO alterar para menu inicial
 			break;

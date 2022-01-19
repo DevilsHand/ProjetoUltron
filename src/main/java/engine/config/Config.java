@@ -1,8 +1,6 @@
 package engine.config;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -39,7 +37,7 @@ public class Config {
 			Files.write(config.toPath(), option, StandardCharsets.UTF_8);
 			readConfig();
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
 	}
 	public void readConfig() throws IOException {
@@ -51,6 +49,19 @@ public class Config {
 		options.put("branch", lista.get(0));
 		options.put("path", lista.get(1));
 		isLive = true;
+	}
+	
+	public void setOption(String option, String valor) { //TODO otimizar
+		List<String> lista = new ArrayList<String>();
+		options.put(option,valor);
+		lista.add(options.get("branch"));
+		lista.add(options.get("path"));
+		try {
+			Files.write(config.toPath(), lista, StandardCharsets.UTF_8);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}		
+		
 	}
 	public String getOption(String option) {
 		return options.get(option);
