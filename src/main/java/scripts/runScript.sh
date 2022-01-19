@@ -1,4 +1,4 @@
-cd C:\Users\gabriel.araujo\eclipse-workspace\ProjetoUltron
+cd C:\\Users\\gabriel.araujo\\eclipse-workspace\\ProjetoUltron
 echo -+--+--+--+--+--+--+--+--+--+--+--+--+--+-
 echo '|Insira sua senha do git no prompt abaixo|'
 echo -+--+--+--+--+--+--+--+--+--+--+--+--+--+-

@@ -73,6 +73,8 @@ public class ScriptObj {
 	}
 	public void commandoStatus() {
 		script.add("git status");
+		script.add("echo pressione ENTER para continuar");
+		script.add("read $N");
 		
 		
 	}

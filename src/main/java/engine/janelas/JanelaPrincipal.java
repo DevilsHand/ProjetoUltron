@@ -10,12 +10,12 @@ import engine.config.Config;
 
 public class JanelaPrincipal extends JFrame {
 	public static final Config CONFIG = new Config();
-	private static NomeBranch nomeBranch; 
+	private  NomeBranch nomeBranch; 
 	
 	private JPanel painelAtivo;
 	public JanelaPrincipal() {
 		super("Automation Helper (beta 0.2)" );
-		nomeBranch = this.new NomeBranch();
+		
 		setSize(new Dimension(400, 250));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
@@ -25,6 +25,7 @@ public class JanelaPrincipal extends JFrame {
 	
 	public void inicio() {
 		if (CONFIG.isLive) {
+			nomeBranch = this.new NomeBranch();
 			menuPrincipal();
 		} else {
 			menuConfiguration();
