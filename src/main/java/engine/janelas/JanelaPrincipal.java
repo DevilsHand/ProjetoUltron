@@ -57,7 +57,7 @@ public class JanelaPrincipal extends JFrame {
 	
 	public void ajuda() {
 		remove(painelAtivo);
-		painelAtivo = new Ajuda(this);
+		painelAtivo = new Ajuda();
 		getContentPane().add(painelAtivo);
 		painelAtivo.updateUI();
 		
@@ -65,7 +65,7 @@ public class JanelaPrincipal extends JFrame {
 
 	public void snippetMaker() {
 		remove(painelAtivo);
-		painelAtivo = new SnippetMaker(this);
+		painelAtivo = new SnippetMaker();
 		getContentPane().add(painelAtivo);
 		painelAtivo.updateUI();
 		

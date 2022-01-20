@@ -5,19 +5,14 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.List;
+import engine.janelas.uiElement.Leitor;
 
-public class Ajuda extends JPanel implements ActionListener {
-	private final JanelaPrincipal MENU;
+public class Ajuda extends JPanel implements Leitor {
 	private final JButton voltar = new JButton(" Voltar ");
 	private JPanel painel = new JPanel();
 	
 	
-	public Ajuda(JanelaPrincipal menu) {
-		MENU = menu;
+	public Ajuda() {
 		setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 		inicio();
 	}
@@ -32,16 +27,6 @@ public class Ajuda extends JPanel implements ActionListener {
 		painel.add(voltar);
 		painel.add(new JLabel("Beta 0.2"));
 		add(painel);
-	}
-	
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		if (e.getActionCommand() == "Voltar") {
-			MENU.inicio();
-		}
-		
-	}
-	
+	}	
 
 }

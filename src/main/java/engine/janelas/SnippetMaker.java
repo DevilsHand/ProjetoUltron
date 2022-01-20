@@ -5,37 +5,19 @@ import javax.swing.JPanel;
 
 import engine.scriptmakers.SnippetWriter;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import engine.janelas.uiElement.Leitor;
 
-public class SnippetMaker extends JPanel implements ActionListener {
-	private final JanelaPrincipal MENU;
-	private final SnippetWriter maker;
+public class SnippetMaker extends JPanel implements Leitor {
+	private final SnippetWriter snippetWriter = new SnippetWriter();
 	
 	private final JButton botao = new JButton(" Testa Snippet ");
 	
-	public SnippetMaker(JanelaPrincipal janela) {
-		MENU = janela;
-		maker = new SnippetWriter();
-		
+	public SnippetMaker() {
 		botao.addActionListener(this);
 		botao.setActionCommand("Snippet");
 		
-		add(botao);
+		add(botao);		
 	}
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		switch (e.getActionCommand()) {
-		case "Snippet":
-			maker.makeGiven("possuir um automatizador");
-			maker.print();
-			break;
-
-		default:
-			break;
-		}
-		
-	}
+	
 
 }

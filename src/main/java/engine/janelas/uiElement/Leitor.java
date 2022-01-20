@@ -3,22 +3,25 @@ package engine.janelas.uiElement;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import engine.janelas.PrimeiroAcesso;
 import engine.scriptmakers.ScriptObj;
 
 import static creators.main.MENU;
-import static engine.janelas.JanelaPrincipal.CONFIG;
 
 public interface Leitor extends ActionListener {
+	
 	ScriptObj script = new ScriptObj();
 	
 	default void actionPerformed(ActionEvent e) {
 		switch (e.getActionCommand()) {
-		case "Config":
+		case "MakeSnippet":
 			
-			MENU.inicio();
 			break;
 		
-		
+		case "Config":
+			PrimeiroAcesso.setConfiguration();
+			MENU.inicio();
+			break;
 		case "GitHelper":
 			MENU.gitHelper();
 			break;
@@ -28,9 +31,6 @@ public interface Leitor extends ActionListener {
 		case "Snippets":
 			MENU.snippetMaker();			
 			break;
-			
-		
-			
 		case "Commit":
 			script.comandoCommit("Commit automatizado");
 			script.executar();
@@ -51,6 +51,7 @@ public interface Leitor extends ActionListener {
 			MENU.inicio();
 			break;
 		}
+		
 
 	}
 }
