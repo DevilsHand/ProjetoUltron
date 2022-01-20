@@ -30,7 +30,7 @@ public class GitHelper extends JPanel implements Leitor {
 			startUp();
 	}
 	private void startUp() {
-		
+		entradaCommit.setText("");
 		boxTitulo.add(titulo);
 		boxEntrada.add(entradaCommit.labelFor());
 		boxEntrada.add(entradaCommit);
