@@ -1,13 +1,6 @@
-cd null
-echo -+--+--+--+--+--+--+--+--+--+--+--+--+--+-
-echo '|Insira sua senha do git no prompt abaixo|'
-echo -+--+--+--+--+--+--+--+--+--+--+--+--+--+-
+cd C:\\Users\\gabriel.araujo\\eclipse-workspace\\ProjetoUltron
+git status
+echo pressione ENTER para continuar
+read $N
 git add .
-git commit -m 'Push Automatizado'
-git push origin null
-echo -+--+--+--+--+--+--+--+--+--+--+--+--+--+-
-echo '|Insira sua senha do git no prompt abaixo|'
-echo -+--+--+--+--+--+--+--+--+--+--+--+--+--+-
-git add .
-git commit -m 'Push Automatizado'
-git push origin null
+git commit -m 'Commit automatizado'
