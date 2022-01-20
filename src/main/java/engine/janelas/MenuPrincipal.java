@@ -7,12 +7,9 @@ import javax.swing.JPanel;
 
 import engine.janelas.JanelaPrincipal.NomeBranch;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import engine.janelas.uiElement.Leitor;
 
-
-public class MenuPrincipal extends JPanel implements ActionListener {
-	private final JanelaPrincipal MENU;
+public class MenuPrincipal extends JPanel implements Leitor {
 	private final JPanel boxTitulo = new JPanel();
 	private final JPanel boxBotoes = new JPanel();
 	private final JPanel boxRodape = new JPanel();
@@ -22,8 +19,7 @@ public class MenuPrincipal extends JPanel implements ActionListener {
 	private final JButton btnSnippetMaker = new JButton(" Snippet Maker ");
 	private final JButton btnAjuda = new JButton(" Ajuda ");
 	
-	public MenuPrincipal(JanelaPrincipal janela, NomeBranch bn) {
-			MENU = janela;
+	public MenuPrincipal(NomeBranch bn) {
 			nomeBranch = bn.getNomeBranch();
 			setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 			startUp();
@@ -49,35 +45,5 @@ public class MenuPrincipal extends JPanel implements ActionListener {
 		add(boxRodape);
 		add(nomeBranch);
 		updateUI();
-
 	}
-	
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		switch (e.getActionCommand()) {
-		case "GitHelper":
-			MENU.gitHelper();
-			break;
-		case "Ajuda":
-			MENU.ajuda();
-			break;
-			
-		case "Snippets":
-			MENU.snippetMaker();			
-			break;
-			
-		default :
-			JLabel msgErro = new JLabel("Função ainda não adicionada");
-			boxTitulo.add(msgErro);
-			updateUI();
-			break;		
-			
-		}
-		
-		
-		
-	}
-	
-	
-
 }

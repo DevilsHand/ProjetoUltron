@@ -15,12 +15,9 @@ public class JanelaPrincipal extends JFrame {
 	private JPanel painelAtivo;
 	public JanelaPrincipal() {
 		super("Automation Helper (beta 0.2)" );
-		
 		setSize(new Dimension(400, 250));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
-		
-		
 	}
 	
 	public void inicio() {
@@ -37,14 +34,14 @@ public class JanelaPrincipal extends JFrame {
 			remove(painelAtivo);			
 		}
 		
-		painelAtivo = new MenuPrincipal(this, nomeBranch);
+		painelAtivo = new MenuPrincipal(nomeBranch);
 		getContentPane().add(painelAtivo);		
 		painelAtivo.updateUI();
 		
 	}
 	
 	private void menuConfiguration() {
-		painelAtivo = new PrimeiroAcesso(this);
+		painelAtivo = new PrimeiroAcesso();
 		getContentPane().add(painelAtivo);
 		painelAtivo.updateUI();
 
@@ -52,7 +49,7 @@ public class JanelaPrincipal extends JFrame {
 	
 	public void gitHelper() {
 		remove(painelAtivo);
-		painelAtivo = new GitHelper(this, nomeBranch);
+		painelAtivo = new GitHelper(nomeBranch);
 		getContentPane().add(painelAtivo);
 		painelAtivo.updateUI();
 	}

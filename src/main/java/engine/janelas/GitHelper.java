@@ -5,16 +5,10 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import engine.scriptmakers.ScriptObj;
-
-
 import engine.janelas.JanelaPrincipal.NomeBranch;
+import engine.janelas.uiElement.Leitor;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-public class GitHelper extends JPanel implements ActionListener {
-	private final JanelaPrincipal MENU;
+public class GitHelper extends JPanel implements Leitor {
 	private final JPanel boxTitulo = new JPanel();
 	private final JPanel boxBotoes = new JPanel();
 	private final JPanel nomeBranch;
@@ -26,8 +20,7 @@ public class GitHelper extends JPanel implements ActionListener {
 	private final JButton btnStatus = new JButton(" Status ");
 	private final JButton btnVoltar = new JButton(" Voltar ");
 	
-	public GitHelper(JanelaPrincipal janela, NomeBranch nb) {
-			MENU = janela;
+	public GitHelper( NomeBranch nb) {
 			nomeBranch = nb.getNomeBranch();
 			setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 			startUp();
@@ -59,39 +52,4 @@ public class GitHelper extends JPanel implements ActionListener {
 		add(nomeBranch);
 
 	}
-	
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		ScriptObj script = new ScriptObj();
-		switch (e.getActionCommand()) {
-		
-		case "Commit":
-			script.comandoCommit("Commit automatizado");
-			script.executar();
-			break;
-		case "Pull":
-			script.comandoPull("Pull Automatizado");
-			script.executar();
-			break;
-		case "Push":
-			script.comandoPush("Push Automatizado");
-			script.executar();
-			break;
-		case "Status":
-			script.commandoStatus();
-			script.executar();
-			break;
-		case "Voltar":
-			MENU.inicio();
-			break;
-			
-		}
-		
-		
-		
-	}
-	
-	
-
 }
