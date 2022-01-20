@@ -6,24 +6,23 @@ import javax.swing.JPanel;
 
 import static engine.janelas.JanelaPrincipal.CONFIG;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import engine.janelas.uiElement.ButtonElement;
+import engine.janelas.uiElement.Entradas;
+import engine.janelas.uiElement.Leitor;
 
 
-public class PrimeiroAcesso  extends JPanel implements ActionListener{
-	private final JanelaPrincipal CONTROLADOR;
+public class PrimeiroAcesso  extends JPanel implements Leitor {
 	private final JPanel boxTitulo = new JPanel();
 	private final JPanel boxBotoes = new JPanel();
 	private final JPanel boxBotoesII = new JPanel();
 	private final JPanel boxRodape = new JPanel();
 	private final JLabel titulo = new JLabel("Bem Vindo, escolha uma opção abaixo");
 	
-	private final Entradas inBranch = new Entradas("Nome da Branch: ");
-	private final Entradas inPath = new Entradas("Caminho do Projeto: ");
+	private static  final Entradas inBranch = new Entradas("Nome da Branch: ");
+	private static final Entradas inPath = new Entradas("Caminho do Projeto: ");
 	
 	
-	public PrimeiroAcesso(JanelaPrincipal janela) {
-		CONTROLADOR = janela;
+	public PrimeiroAcesso() {
 		menuConfiguration();
 	}
 	
@@ -31,11 +30,7 @@ public class PrimeiroAcesso  extends JPanel implements ActionListener{
 	private void menuConfiguration() {
 		JLabel infoI = new JLabel("- Configuração inicial - ");
 		JLabel infoII = new JLabel("- Insira as Informações abaixo - ");
-		
-		JButton botao = new JButton("Confirmar");
-		
-		botao.addActionListener(this);
-		botao.setActionCommand("Config");
+		ButtonElement botao = new ButtonElement(" Confirmar ", this, "configInicial");
 		boxTitulo.add(titulo);
 		boxTitulo.add(infoI);
 		boxTitulo.add(infoII);
@@ -50,23 +45,7 @@ public class PrimeiroAcesso  extends JPanel implements ActionListener{
 		add(boxRodape);
 	}
 	
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		switch (e.getActionCommand()) {
-		case "Config":
-			CONFIG.criarConfig(inBranch.getText(), inPath.getText());
-			remove(boxTitulo);
-			remove(boxBotoes);
-			remove(boxBotoesII);
-			remove(boxRodape);
-			CONTROLADOR.inicio();
-			break;
-		default :
-			JLabel msgErro = new JLabel("Função ainda não adicionada");
-			boxTitulo.add(msgErro);
-			updateUI();
-			break;		
-			
-		}
+	public static void setConfiguration() {
+		CONFIG.criarConfig(inBranch.getText(), inPath.getText());
 	}
 }
