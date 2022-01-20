@@ -26,7 +26,7 @@ public class ScriptObj {
 		escreverSh();
 		executarSh(path);
 		
-		apagarSh();
+		//apagarSh();
 	}
 	private void escreverSh() {
 		//script.add("echo Esse Script ainda está em beta, pressione ENTER para finalizar");
