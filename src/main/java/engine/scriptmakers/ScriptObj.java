@@ -19,7 +19,7 @@ public class ScriptObj {
 	public ScriptObj() {
 		
 		arquivoSh = new File(path);
-		script.add(String.format("cd %s", PROJECTPATH));//TODO alterar
+		script.add(String.format("cd %s", PROJECTPATH));
 	}
 	
 	public void executar() {
@@ -27,12 +27,10 @@ public class ScriptObj {
 		executarSh(path);
 		apagarSh();
 		script.clear();
-		script.add(String.format("cd %s", PROJECTPATH));//TODO alterar
+		script.add(String.format("cd %s", PROJECTPATH));
 		
 	}
 	private void escreverSh() {
-		//script.add("echo Esse Script ainda está em beta, pressione ENTER para finalizar");
-		//script.add("read $NAME");// só pro bash não fechar, pode ser ignorado dps
 		try {
 			Files.write(arquivoSh.toPath(), script, StandardCharsets.UTF_8);
 		} catch (Exception e) {

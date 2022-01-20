@@ -14,40 +14,40 @@ public interface Leitor extends ActionListener {
 	
 	default void actionPerformed(ActionEvent e) {
 		switch (e.getActionCommand()) {
-		case "MakeSnippet":
+		case "makeSnippet":
 			
 			break;
 		
-		case "Config":
+		case "configInicial":
 			PrimeiroAcesso.setConfiguration();
 			MENU.inicio();
 			break;
-		case "GitHelper":
+		case "gitHelper":
 			MENU.gitHelper();
 			break;
-		case "Ajuda":
+		case "ajuda":
 			MENU.ajuda();
 			break;
-		case "Snippets":
+		case "snippets":
 			MENU.snippetMaker();			
 			break;
-		case "Commit":
+		case "commit":
 			script.comandoCommit("Commit automatizado");
 			script.executar();
 			break;
-		case "Pull":
+		case "pull":
 			script.comandoPull("Pull Automatizado");
 			script.executar();
 			break;
-		case "Push":
+		case "push":
 			script.comandoPush("Push Automatizado");
 			script.executar();
 			break;
-		case "Status":
+		case "status":
 			script.commandoStatus();
 			script.executar();
 			break;
-		case "Voltar":
+		case "voltar":
 			MENU.inicio();
 			break;
 		}

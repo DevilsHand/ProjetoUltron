@@ -1,4 +1,4 @@
-package engine.janelas;
+package engine.janelas.uiElement;
 
 import java.awt.Dimension;
 

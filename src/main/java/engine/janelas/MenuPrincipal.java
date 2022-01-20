@@ -6,7 +6,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import engine.janelas.JanelaPrincipal.NomeBranch;
-
+import engine.janelas.uiElement.ButtonElement;
 import engine.janelas.uiElement.Leitor;
 
 public class MenuPrincipal extends JPanel implements Leitor {
@@ -15,9 +15,9 @@ public class MenuPrincipal extends JPanel implements Leitor {
 	private final JPanel boxRodape = new JPanel();
 	private final JPanel nomeBranch;
 	private final JLabel titulo = new JLabel("Bem Vindo, escolha uma opção abaixo");
-	private final JButton btnGitHelper = new JButton(" Git Helper ");
-	private final JButton btnSnippetMaker = new JButton(" Snippet Maker ");
-	private final JButton btnAjuda = new JButton(" Ajuda ");
+	private final ButtonElement btnGitHelper = new ButtonElement(" Git Helper ", this, "gitHelper");
+	private final ButtonElement btnSnippetMaker = new ButtonElement(" Snippet Helper ", this, "snippets");
+	private final ButtonElement btnAjuda = new ButtonElement(" Ajuda ", this, "ajuda");
 	
 	public MenuPrincipal(NomeBranch bn) {
 			nomeBranch = bn.getNomeBranch();
@@ -26,15 +26,7 @@ public class MenuPrincipal extends JPanel implements Leitor {
 	}
 	
 	private void startUp() {
-		//torna os botões responsivos
-		btnGitHelper.addActionListener(this);
-		btnSnippetMaker.addActionListener(this);
-		btnAjuda.addActionListener(this);
-		//Action command
-		btnGitHelper.setActionCommand("GitHelper");
-		btnSnippetMaker.setActionCommand("Snippets");
-		btnAjuda.setActionCommand("Ajuda");
-		
+			
 		boxBotoes.add(btnGitHelper);
 		boxBotoes.add(btnSnippetMaker);
 		boxTitulo.add(titulo);

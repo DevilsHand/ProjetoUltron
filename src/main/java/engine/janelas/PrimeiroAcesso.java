@@ -6,6 +6,8 @@ import javax.swing.JPanel;
 
 import static engine.janelas.JanelaPrincipal.CONFIG;
 
+import engine.janelas.uiElement.ButtonElement;
+import engine.janelas.uiElement.Entradas;
 import engine.janelas.uiElement.Leitor;
 
 
@@ -28,11 +30,7 @@ public class PrimeiroAcesso  extends JPanel implements Leitor {
 	private void menuConfiguration() {
 		JLabel infoI = new JLabel("- Configuração inicial - ");
 		JLabel infoII = new JLabel("- Insira as Informações abaixo - ");
-		
-		JButton botao = new JButton("Confirmar");
-		
-		botao.addActionListener(this);
-		botao.setActionCommand("Config");
+		ButtonElement botao = new ButtonElement(" Confirmar ", this, "configInicial");
 		boxTitulo.add(titulo);
 		boxTitulo.add(infoI);
 		boxTitulo.add(infoII);

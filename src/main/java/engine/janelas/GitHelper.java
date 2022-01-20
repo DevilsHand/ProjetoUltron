@@ -6,6 +6,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import engine.janelas.JanelaPrincipal.NomeBranch;
+import engine.janelas.uiElement.ButtonElement;
 import engine.janelas.uiElement.Leitor;
 
 public class GitHelper extends JPanel implements Leitor {
@@ -13,32 +14,19 @@ public class GitHelper extends JPanel implements Leitor {
 	private final JPanel boxBotoes = new JPanel();
 	private final JPanel nomeBranch;
 	private final JLabel titulo = new JLabel("- Git Helper -");
-	private final JButton btnPull = new JButton(" Pull ");
-	private final JButton btnPush = new JButton(" Push ");
-	private final JButton btnCommit = new JButton(" Commit ");
-	private final JButton btnMudarBranch = new JButton(" Mudar Branch ");
-	private final JButton btnStatus = new JButton(" Status ");
-	private final JButton btnVoltar = new JButton(" Voltar ");
+	private final ButtonElement btnPull = new ButtonElement(" Pull ", this, "pull");
+	private final ButtonElement btnPush = new ButtonElement(" Push ", this, "push");
+	private final ButtonElement btnCommit = new ButtonElement(" Commit ", this, "commit");
+	//private final ButtonElement btnMudarBranch = new ButtonElement(" Mudar Branch ", this, "mudarBranch");
+	private final ButtonElement btnStatus = new ButtonElement(" Status ", this, "status");
+	private final ButtonElement btnVoltar = new ButtonElement(" Voltar ", this, "voltar");
 	
-	public GitHelper( NomeBranch nb) {
+	public GitHelper(NomeBranch nb) {
 			nomeBranch = nb.getNomeBranch();
 			setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 			startUp();
 	}
 	private void startUp() {
-		btnVoltar.addActionListener(this);
-		btnCommit.addActionListener(this);
-		btnPull.addActionListener(this);
-		btnPush.addActionListener(this);
-		btnMudarBranch.addActionListener(this);
-		btnStatus.addActionListener(this);
-		//comandos para os botões
-		btnVoltar.setActionCommand("Voltar");
-		btnCommit.setActionCommand("Commit");
-		btnPull.setActionCommand("Pull");
-		btnPush.setActionCommand("Push");
-		btnMudarBranch.setActionCommand("MudarBranch");//TODO implementar
-		btnStatus.setActionCommand("Status");
 		
 		boxTitulo.add(titulo);
 		boxBotoes.add(btnStatus);
