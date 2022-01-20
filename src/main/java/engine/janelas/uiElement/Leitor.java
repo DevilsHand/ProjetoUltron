@@ -3,6 +3,7 @@ package engine.janelas.uiElement;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import engine.janelas.GitHelper;
 import engine.janelas.PrimeiroAcesso;
 import engine.scriptmakers.ScriptObj;
 
@@ -32,15 +33,15 @@ public interface Leitor extends ActionListener {
 			MENU.snippetMaker();			
 			break;
 		case "commit":
-			script.comandoCommit("Commit automatizado");
+			script.comandoCommit();
 			script.executar();
 			break;
 		case "pull":
-			script.comandoPull("Pull Automatizado");
+			script.comandoPull();
 			script.executar();
 			break;
 		case "push":
-			script.comandoPush("Push Automatizado");
+			script.comandoPush();
 			script.executar();
 			break;
 		case "status":

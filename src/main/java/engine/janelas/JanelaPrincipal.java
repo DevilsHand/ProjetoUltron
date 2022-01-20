@@ -15,7 +15,7 @@ public class JanelaPrincipal extends JFrame {
 	private JPanel painelAtivo;
 	public JanelaPrincipal() {
 		super("Automation Helper (beta 0.2)" );
-		setSize(new Dimension(400, 250));
+		setSize(new Dimension(400, 280));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
 	}

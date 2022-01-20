@@ -18,8 +18,6 @@ public class Ajuda extends JPanel implements Leitor {
 		inicio();
 	}
 	private void inicio() {
-		voltar.addActionListener(this);
-		voltar.setActionCommand("Voltar");
 		painel.add(new JLabel("Bem vindo, essa ferramenta visa ajudar no processo de automação"));
 		painel.add(new JLabel("Configuração inicial: Informe o nome da branch que você edita,"));
 		painel.add(new JLabel("além da raiz do projeto, após isso ficara salvo para uso futuro"));

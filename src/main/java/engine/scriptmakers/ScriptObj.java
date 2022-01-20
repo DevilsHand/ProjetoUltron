@@ -6,6 +6,8 @@ import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
+import engine.janelas.GitHelper;
+
 import static engine.terminal.Cmder.executarSh;
 import static engine.janelas.JanelaPrincipal.CONFIG;
 
@@ -46,21 +48,21 @@ public class ScriptObj {
 		}
 	}
 	
-	public void comandoCommit(String mergeMsg) {
+	public void comandoCommit() {
 		script.add("git add .");
-		script.add(String.format("git commit -m '%s'", mergeMsg));
+		script.add(String.format("git commit -m '%s'", GitHelper.getNomeCommit()));
 	}
 
-	public void comandoPull(String mergeMsg) {
-		comandoCommit(mergeMsg);
+	public void comandoPull() {
+		comandoCommit();
 		script.add(String.format("git pull %s %s", "origin", "main"));
 	}
 	
-	public void comandoPush(String mergeMsg) {
+	public void comandoPush() {
 		script.add("echo -+--+--+--+--+--+--+--+--+--+--+--+--+--+-");
 		script.add("echo '|Insira sua senha do git no prompt abaixo|'");
 		script.add("echo -+--+--+--+--+--+--+--+--+--+--+--+--+--+-");
-		comandoCommit(mergeMsg);
+		comandoCommit();
 		script.add(String.format("git push %s %s", "origin", BRANCH));
 	}
 	

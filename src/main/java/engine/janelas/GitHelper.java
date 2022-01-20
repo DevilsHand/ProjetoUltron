@@ -7,11 +7,14 @@ import javax.swing.JPanel;
 
 import engine.janelas.JanelaPrincipal.NomeBranch;
 import engine.janelas.uiElement.ButtonElement;
+import engine.janelas.uiElement.Entradas;
 import engine.janelas.uiElement.Leitor;
 
 public class GitHelper extends JPanel implements Leitor {
+	private final static Entradas entradaCommit = new Entradas("Mensagem do Commit"); 
 	private final JPanel boxTitulo = new JPanel();
 	private final JPanel boxBotoes = new JPanel();
+	private final JPanel boxEntrada = new JPanel();
 	private final JPanel nomeBranch;
 	private final JLabel titulo = new JLabel("- Git Helper -");
 	private final ButtonElement btnPull = new ButtonElement(" Pull ", this, "pull");
@@ -29,6 +32,8 @@ public class GitHelper extends JPanel implements Leitor {
 	private void startUp() {
 		
 		boxTitulo.add(titulo);
+		boxEntrada.add(entradaCommit.labelFor());
+		boxEntrada.add(entradaCommit);
 		boxBotoes.add(btnStatus);
 		boxBotoes.add(btnPull);
 		boxBotoes.add(btnPush);
@@ -36,8 +41,13 @@ public class GitHelper extends JPanel implements Leitor {
 		boxBotoes.add(btnCommit);
 		boxBotoes.add(btnVoltar);
 		add(boxTitulo);
+		add(boxEntrada);
 		add(boxBotoes);
 		add(nomeBranch);
 
 	}
+	public static String getNomeCommit() {
+		return entradaCommit.getText();
+	}
+	
 }
