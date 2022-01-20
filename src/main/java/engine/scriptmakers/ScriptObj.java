@@ -25,8 +25,10 @@ public class ScriptObj {
 	public void executar() {
 		escreverSh();
 		executarSh(path);
+		apagarSh();
+		script.clear();
+		script.add(String.format("cd %s", PROJECTPATH));//TODO alterar
 		
-		//apagarSh();
 	}
 	private void escreverSh() {
 		//script.add("echo Esse Script ainda está em beta, pressione ENTER para finalizar");
