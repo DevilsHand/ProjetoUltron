@@ -55,14 +55,17 @@ public class ScriptObj {
 
 	public void comandoPull() {
 		comandoCommit();
+		script.add("echo -+--+--+--+--+--+--+--+--+--+--+--+--+--+-");
+		script.add("echo '|Insira sua senha do git no prompt abaixo|'");
+		script.add("echo -+--+--+--+--+--+--+--+--+--+--+--+--+--+-");
 		script.add(String.format("git pull %s %s", "origin", "main"));
 	}
 	
 	public void comandoPush() {
+		comandoCommit();
 		script.add("echo -+--+--+--+--+--+--+--+--+--+--+--+--+--+-");
 		script.add("echo '|Insira sua senha do git no prompt abaixo|'");
 		script.add("echo -+--+--+--+--+--+--+--+--+--+--+--+--+--+-");
-		comandoCommit();
 		script.add(String.format("git push %s %s", "origin", BRANCH));
 	}
 	
