@@ -5,7 +5,9 @@ import java.awt.event.ActionListener;
 
 import engine.janelas.GitHelper;
 import engine.janelas.PrimeiroAcesso;
+import engine.janelas.SnippetMaker;
 import engine.scriptmakers.ScriptObj;
+import engine.scriptmakers.SnippetWriter;
 
 import static creators.main.MENU;
 
@@ -16,7 +18,7 @@ public interface Leitor extends ActionListener {
 	default void actionPerformed(ActionEvent e) {
 		switch (e.getActionCommand()) {
 		case "makeSnippet":
-			
+			SnippetMaker.createSnippetByFile();
 			break;
 		
 		case "configInicial":

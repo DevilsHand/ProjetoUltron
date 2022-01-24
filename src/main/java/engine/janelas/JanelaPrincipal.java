@@ -68,6 +68,7 @@ public class JanelaPrincipal extends JFrame {
 		painelAtivo = new SnippetMaker();
 		getContentPane().add(painelAtivo);
 		painelAtivo.updateUI();
+		pack();
 		
 	}
 	

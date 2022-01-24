@@ -47,6 +47,10 @@ public class GitHelper extends JPanel implements Leitor {
 
 	}
 	public static String getNomeCommit() {
+		if (entradaCommit.getText().equals("")) {
+			return "Commit Automatizado";
+		}
+		
 		return entradaCommit.getText();
 	}
 	
