@@ -2,11 +2,10 @@ package engine.scriptmakers;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.util.ArrayList;
-import java.util.Dictionary;
-import java.util.Hashtable;
 import java.util.List;
 import java.util.Scanner;
 
@@ -33,15 +32,14 @@ public class SnippetWriter {
 			e.printStackTrace();
 		}
 	}
-	public void makeGiven(String stepName) {
-		create.add(String.format("\t@Given(\"%s\")", stepName));
+	public void makeSnippet(String step, String stepName ) {
+		create.add(String.format("\t@%s(\"%s\")", step,stepName));
 		create.add(String.format("\tpublic void %s() {", stepName.replace(' ', '_')));
-		create.add("\t//insira aqui os comandos que executam esse passo");
+		create.add("\t//insira aqui os comandos que executam esse passo\n");
 		create.add("\t}");
 	}
 	
-	public void print() {
-		System.out.println(create);
+	public void writeFile() {
 		try {
 			Files.write(output.toPath(), create, StandardCharsets.UTF_8);
 		} catch (Exception e) {
@@ -49,28 +47,39 @@ public class SnippetWriter {
 		}
 	}
 	
-	
 	private class CucumberReader {
 		private final File file;
-		private Dictionary<String, String> text;
+		private List<String> text;
 		public CucumberReader(File file) {
 			this.file = file;
 		}
-		public void readFile() throws FileNotFoundException {
-			text = new Hashtable<String, String>();
-			Scanner sc = new Scanner(file);				
+		public void readFile() throws IOException {
+			text = new ArrayList<String>();
+			Scanner sc = new Scanner(file,StandardCharsets.UTF_8);
 			while (sc.hasNextLine()) {
 				String line = sc.nextLine();
-				String[] comparador = {"Given", "When", "Then"};
-				for (int i = 0; i < 3; i++) {
+				String[] comparador = {"Given", "When", "Then", "And"};
+				for (int i = 0; i <= 3; i++) {
 					if (line.contains(comparador[i])) {
-						String stringTratada = line.replace(comparador[i],"");
-						//TODO cuidar de acentos
-						text.put(comparador[i], stringTratada);
+						String stringTratada = line.replace(comparador[i],"");//TODO tratar tabs e acentos
+						stringTratada = tratarString(stringTratada);						
+						if (text.indexOf(stringTratada) == -1) {
+							text.add(stringTratada);
+							makeSnippet(comparador[i], stringTratada);
+							}
 						}
+					
 					}
 				}
-			System.out.println(text);
 			}
 		}
+	
+	private String tratarString(String stringTratada) { // TODO adicionar tratamentos pra acentos
+		stringTratada = stringTratada.replace("\t", "");
+		stringTratada =  stringTratada.replaceFirst(" ", "");
+		//TODO cuidar de acentos
+		stringTratada = stringTratada.replace('ח', 'c');
+		stringTratada = stringTratada.replace("/[אבגדהו]/", "a");
+		return stringTratada;
+	}
 }

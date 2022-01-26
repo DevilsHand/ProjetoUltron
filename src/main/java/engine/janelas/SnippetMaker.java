@@ -30,6 +30,7 @@ public class SnippetMaker extends JPanel implements Leitor {
 	}
 	public static void createSnippetByFile() {
 		snippetWriter.createSnippetByFile(cucumberFile);
+		snippetWriter.writeFile();
 	}
 
 }
