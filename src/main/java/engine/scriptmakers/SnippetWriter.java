@@ -1,7 +1,6 @@
 package engine.scriptmakers;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -19,7 +18,6 @@ public class SnippetWriter {
 		create.add("package //insira o pacote");
 		create.add("\n");
 		create.add("public class GenericSteps {");
-		
 	}
 	
 	public void createSnippetByFile(File file) {
@@ -75,7 +73,7 @@ public class SnippetWriter {
 		}
 	
 	private String tratarString(String stringTratada) { // TODO adicionar tratamentos pra acentos
-		stringTratada = stringTratada.replace("\t", "");
+		stringTratada = stringTratada.replace("\t\t", "");
 		stringTratada =  stringTratada.replaceFirst(" ", "");
 		//TODO cuidar de acentos
 		stringTratada = stringTratada.replace('ç', 'c');

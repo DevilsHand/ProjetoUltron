@@ -16,11 +16,7 @@ public interface Leitor extends ActionListener {
 	ScriptObj script = new ScriptObj();
 	
 	default void actionPerformed(ActionEvent e) {
-		switch (e.getActionCommand()) {
-		case "makeSnippet":
-			SnippetMaker.createSnippetByFile();
-			break;
-		
+		switch (e.getActionCommand()) {		
 		case "configInicial":
 			PrimeiroAcesso.setConfiguration();
 			MENU.inicio();

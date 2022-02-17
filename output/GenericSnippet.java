@@ -2,53 +2,33 @@ package //insira o pacote
 
 
 public class GenericSteps {
-	@Given("estar com o gerador operante")
-	public void estar_com_o_gerador_operante() {
+	@Given("    Estar na pagina inicial e aceessar o youtube")
+	public void ____Estar_na_pagina_inicial_e_aceessar_o_youtube() {
 	//insira aqui os comandos que executam esse passo
 
 	}
-	@When("eu coloco um  feature no gerador")
-	public void eu_coloco_um__feature_no_gerador() {
+	@When("    Pesquisar sobre o appium")
+	public void ____Pesquisar_sobre_o_appium() {
 	//insira aqui os comandos que executam esse passo
 
 	}
-	@Then("ele gera os steps com descricão correta")
-	public void ele_gera_os_steps_com_descricão_correta() {
+	@Then("    verificar que a pesquisa esta correta")
+	public void ____verificar_que_a_pesquisa_esta_correta() {
 	//insira aqui os comandos que executam esse passo
 
 	}
-	@When("colocar um feature com 2 givens iguais")
-	public void colocar_um_feature_com_2_givens_iguais() {
+	@Given("    Estar na tela inicial e abrir o menu")
+	public void ____Estar_na_tela_inicial_e_abrir_o_menu() {
 	//insira aqui os comandos que executam esse passo
 
 	}
-	@And("adicionar um and nos snippets")
-	public void adicionar_um_and_nos_snippets() {
+	@When("    digitar um tempo especifico")
+	public void ____digitar_um_tempo_especifico() {
 	//insira aqui os comandos que executam esse passo
 
 	}
-	@Then("nos steps deve haver apenas um given ")
-	public void nos_steps_deve_haver_apenas_um_given_() {
-	//insira aqui os comandos que executam esse passo
-
-	}
-	@Given("estar com o gerador operante ")
-	public void estar_com_o_gerador_operante_() {
-	//insira aqui os comandos que executam esse passo
-
-	}
-	@When("clicar para gerar os snippets")
-	public void clicar_para_gerar_os_snippets() {
-	//insira aqui os comandos que executam esse passo
-
-	}
-	@And("verificar ")
-	public void verificar_() {
-	//insira aqui os comandos que executam esse passo
-
-	}
-	@Then("deve gerar apenas dois and")
-	public void deve_gerar_apenas_dois_and() {
+	@Then("    verificar que o tempo foi posicionado")
+	public void ____verificar_que_o_tempo_foi_posicionado() {
 	//insira aqui os comandos que executam esse passo
 
 	}
