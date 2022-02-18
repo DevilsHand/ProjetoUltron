@@ -31,8 +31,8 @@ public class SnippetWriter {
 		}
 	}
 	public void makeSnippet(String step, String stepName ) {
-		create.add(String.format("\t@%s(\"%s\")", step,stepName));
-		create.add(String.format("\tpublic void %s() {", stepName.replace(' ', '_')));
+		create.add(String.format("\t@%s(\"%s\")", step,stepName.replace("    ", "")));
+		create.add(String.format("\tpublic void %s() {", stepName.replace("    ", "").replace(" ", "_")));
 		create.add("\t//insira aqui os comandos que executam esse passo\n");
 		create.add("\t}");
 	}
@@ -59,6 +59,7 @@ public class SnippetWriter {
 				String[] comparador = {"Given", "When", "Then", "And"};
 				for (int i = 0; i <= 3; i++) {
 					if (line.contains(comparador[i])) {
+						//String stringTratada = line.split(line);
 						String stringTratada = line.replace(comparador[i],"");//TODO tratar tabs e acentos
 						stringTratada = tratarString(stringTratada);						
 						if (text.indexOf(stringTratada) == -1) {
