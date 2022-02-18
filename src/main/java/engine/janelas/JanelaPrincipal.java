@@ -11,8 +11,8 @@ import engine.config.Config;
 public class JanelaPrincipal extends JFrame {
 	public static final Config CONFIG = new Config();
 	private  NomeBranch nomeBranch; 
+	private static JPanel painelAtivo;
 	
-	private JPanel painelAtivo;
 	public JanelaPrincipal() {
 		super("Automation Helper (beta 0.3)" );
 		setSize(new Dimension(400, 280));
@@ -65,13 +65,11 @@ public class JanelaPrincipal extends JFrame {
 
 	public void snippetMaker() {
 		remove(painelAtivo);
-		painelAtivo = new SnippetMaker();
+		painelAtivo = new SnippetMaker(this);
 		getContentPane().add(painelAtivo);
 		painelAtivo.updateUI();
-		pack();
 		
 	}
-	
 
 	public class NomeBranch extends JPanel {
 		private final JLabel nomeBranch;

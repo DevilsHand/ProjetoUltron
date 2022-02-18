@@ -1,7 +1,6 @@
 package engine.scriptmakers;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -19,7 +18,6 @@ public class SnippetWriter {
 		create.add("package //insira o pacote");
 		create.add("\n");
 		create.add("public class GenericSteps {");
-		
 	}
 	
 	public void createSnippetByFile(File file) {
@@ -33,8 +31,8 @@ public class SnippetWriter {
 		}
 	}
 	public void makeSnippet(String step, String stepName ) {
-		create.add(String.format("\t@%s(\"%s\")", step,stepName));
-		create.add(String.format("\tpublic void %s() {", stepName.replace(' ', '_')));
+		create.add(String.format("\t@%s(\"%s\")", step,stepName.replace("    ", "")));
+		create.add(String.format("\tpublic void %s() {", stepName.replace("    ", "").replace(" ", "_")));
 		create.add("\t//insira aqui os comandos que executam esse passo\n");
 		create.add("\t}");
 	}
@@ -61,6 +59,7 @@ public class SnippetWriter {
 				String[] comparador = {"Given", "When", "Then", "And"};
 				for (int i = 0; i <= 3; i++) {
 					if (line.contains(comparador[i])) {
+						//String stringTratada = line.split(line);
 						String stringTratada = line.replace(comparador[i],"");//TODO tratar tabs e acentos
 						stringTratada = tratarString(stringTratada);						
 						if (text.indexOf(stringTratada) == -1) {
@@ -75,7 +74,7 @@ public class SnippetWriter {
 		}
 	
 	private String tratarString(String stringTratada) { // TODO adicionar tratamentos pra acentos
-		stringTratada = stringTratada.replace("\t", "");
+		stringTratada = stringTratada.replace("\t\t", "");
 		stringTratada =  stringTratada.replaceFirst(" ", "");
 		//TODO cuidar de acentos
 		stringTratada = stringTratada.replace('ç', 'c');
