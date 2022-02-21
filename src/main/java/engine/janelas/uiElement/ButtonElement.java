@@ -8,6 +8,7 @@ public class ButtonElement extends JButton {
 		setText(nome);
 		setActionCommand(comando);
 		addActionListener(leitorAcoes);
+		
 	}
 	
 	public JButton getBotao() {

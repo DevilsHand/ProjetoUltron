@@ -19,6 +19,16 @@ public class JanelaPrincipal extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
 	}
+	public static void teste() {
+		System.out.println("Teste");
+	}
+	
+	public void gitClone() {
+		remove(painelAtivo);
+		painelAtivo = new GitClone();
+		getContentPane().add(painelAtivo);
+		painelAtivo.updateUI();
+	}
 	
 	public void inicio() {
 		if (CONFIG.isLive) {

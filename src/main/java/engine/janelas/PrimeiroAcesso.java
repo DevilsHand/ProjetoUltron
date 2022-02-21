@@ -1,6 +1,5 @@
 package engine.janelas;
 
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -18,6 +17,7 @@ public class PrimeiroAcesso  extends JPanel implements Leitor {
 	private final JPanel boxRodape = new JPanel();
 	private final JLabel titulo = new JLabel("Bem Vindo, escolha uma opção abaixo");
 	
+	
 	private static  final Entradas inBranch = new Entradas("Nome da Branch: ");
 	private static final Entradas inPath = new Entradas("Caminho do Projeto: ");
 	
@@ -31,6 +31,7 @@ public class PrimeiroAcesso  extends JPanel implements Leitor {
 		JLabel infoI = new JLabel("- Configuração inicial - ");
 		JLabel infoII = new JLabel("- Insira as Informações abaixo - ");
 		ButtonElement botao = new ButtonElement(" Confirmar ", this, "configInicial");
+		ButtonElement botaoClone = new ButtonElement(" Git Clone", this, "clone");
 		boxTitulo.add(titulo);
 		boxTitulo.add(infoI);
 		boxTitulo.add(infoII);
@@ -39,6 +40,7 @@ public class PrimeiroAcesso  extends JPanel implements Leitor {
 		boxBotoesII.add(inPath.labelFor());
 		boxBotoesII.add(inPath);
 		boxRodape.add(botao);
+		boxRodape.add(botaoClone);
 		add(boxTitulo);
 		add(boxBotoes);
 		add(boxBotoesII);
@@ -47,5 +49,8 @@ public class PrimeiroAcesso  extends JPanel implements Leitor {
 	
 	public static void setConfiguration() {
 		CONFIG.criarConfig(inBranch.getText(), inPath.getText());
+	}
+	public static void setConfiguration(String s) {
+		CONFIG.criarConfig("main", s);
 	}
 }

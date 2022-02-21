@@ -18,12 +18,14 @@ public class Cmder {
 				leitor.add(sc.nextLine());
 			}
 			System.out.println(leitor);
+			sc.close();
 			return leitor;
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
 		}
+		
 	}
 	
 }

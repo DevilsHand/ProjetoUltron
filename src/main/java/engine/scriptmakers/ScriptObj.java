@@ -5,6 +5,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
 
 import engine.janelas.GitHelper;
 
@@ -52,6 +53,18 @@ public class ScriptObj {
 		script.add("git add .");
 		script.add(String.format("git commit -m '%s'", GitHelper.getNomeCommit()));
 	}
+	
+	public void comandoGitClone(String s, String path) {
+		
+		script.add("echo -+--+--+--+--+--+--+--+--+--+--+--+--+--+-");
+		script.add("echo '|Insira sua senha do git no prompt abaixo|'");
+		script.add("echo -+--+--+--+--+--+--+--+--+--+--+--+--+--+-");
+		script.add(String.format("echo %s", path.replaceAll("\\\\", Matcher.quoteReplacement("\\\\"))));
+		script.add(String.format("cd %s", path.replaceAll("\\\\", Matcher.quoteReplacement("\\\\"))));
+		script.add("ls");
+		script.add(String.format("git clone %s", s));
+		script.add("read $N");
+	}
 
 	public void comandoPull() {
 		comandoCommit();
@@ -67,10 +80,6 @@ public class ScriptObj {
 		script.add("echo '|Insira sua senha do git no prompt abaixo|'");
 		script.add("echo -+--+--+--+--+--+--+--+--+--+--+--+--+--+-");
 		script.add(String.format("git push %s %s", "origin", BRANCH));
-	}
-	
-	public void comandoClone () {
-		//TODO implementar o clone
 	}
 	
 	public void comandoCheckout(String branch) {
